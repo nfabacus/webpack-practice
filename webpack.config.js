@@ -1,6 +1,9 @@
 var webpack = require('webpack');
 module.exports = {
-    entry: "./app",
+    entry: [
+      "bootstrap-loader",
+      "./app"
+    ],
     output: {
         path: './build',
         filename: "bundle.js"
@@ -28,6 +31,14 @@ module.exports = {
                 'autoprefixer?browsers=last 3 versions',
                 'sass?outputStyle=expanded'
               ]
+            },
+            {
+                test: /\.(woff2?|ttf|eot|svg)$/,
+                loader: 'url?limit=10000'
+            },
+            {
+                test: /bootstrap-sass\/assets\/javascripts\//,
+                loader: 'imports?jQuery=jquery'
             }
         ]
     },
