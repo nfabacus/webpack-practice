@@ -1,3 +1,3 @@
 # Webpack Practice
 
-This repo is for me to learn how to use webpack.
+This repo is a simple experiment to use webpack.
