@@ -14,7 +14,7 @@ module.exports = {
     },
     module: {
         loaders: [
-            { test: /\/js$/,
+            { test: /\.js$/,
               loader: 'babel-loader',
               exclude: /node_modules/,
               query: {
@@ -24,13 +24,19 @@ module.exports = {
             { test: /\.html$/,
               loader: "raw"
             },
-            { test: /\.scss$/,
-              loaders: [
-                'style',
-                'css',
-                'autoprefixer?browsers=last 3 versions',
-                'sass?outputStyle=expanded'
-              ]
+            {
+                test: /\.scss$/,
+                exclude: /node_modules/,
+                loaders: [
+                    'style',
+                    'css',
+                    'autoprefixer?browsers=last 3 versions',
+                    'sass?outputStyle=expanded'
+                ]
+            },
+            {
+              test: /\.(png|jpg|svg)$/,
+              loader: 'url?limit=5000000'
             },
             {
                 test: /\.(woff2?|ttf|eot|svg)$/,
